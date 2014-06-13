@@ -1,0 +1,20 @@
+<h1>Welcome to my notes!</h1>
+<h2>Add a new note!</h2>
+<%= form_for(@note ) do |f| %>
+	<%= f.label :title, 'title goes here' %>
+	<%= f.text_field :title %>
+	<%= f.label :note, 'add your note!' %>
+	<%= f.text_area :note %>
+	<%= f.submit 'add note!' %>
+<% end %>
+<h2>All of the notes!</h2>
+<div id='notes'>
+	<% @notes.each do |note| %>
+		<div class='note'>
+			<h3><%= note.title %></h3>
+			<p><%= note.note %></p>
+			<a href="<%= note_path(note) %>" data-method='delete'>x</a>
+			
+		</div>
+	<% end %>
+</div>
